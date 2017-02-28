@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+  <!-- Spring 注入内部 Beans -->
+  <!-- Definition for textEditor bean -->
+  <!-- <bean id="textEditor" class="com.tutorialspoint.TextEditor">
+    <property name="spellChecker">
+      Definition for spellChecker bean
+      <bean id="spellChecker" class="com.tutorialspoint.SpellChecker"></bean>
+    </property>
+  </bean> -->
+  
+  <!-- Definition for javaCollection -->
+  <bean id="javaCollection" class="com.tutorialspoint.JavaCollection">
+    <!-- results in a setAddressList(java.util.List) call -->
+    <property name="addressList">
+      <list>
+        <value>China</value>
+        <value>India</value>
+        <value>Pakistan</value>
+        <value>USA</value>
+        <value>UK</value>
+        <ref bean="spellChecker"/>
+      </list>
+    </property>
+    
+    <!-- results in a setAddressSet(java.util.Set) call -->
+    <property name="addressSet">
+      <set>
+        <value>China</value>
+        <value>India</value>
+        <value>Pakistan</value>
+        <value>USA</value>
+        <value>UK</value>
+        <ref bean="spellChecker"/>
+      </set>
+    </property>
+    
+    <!-- results in a setAddressMap(java.util.Map) call -->
+    <property name="addressMap">
+      <map>
+        <entry key="1" value="China"/>
+        <entry key="2" value="India"/>
+        <entry key="3" value="Pakistan"/>
+        <entry key="4" value="USA"/>
+        <entry key="5" value="UK"/>
+        <entry key ="ref" value-ref="spellChecker"/>
+      </map>
+    </property>
+    
+    <!-- results in a setAddressProp(java.util.Properties) call -->
+    <property name="addressProp">
+      <props>
+        <prop key="one">China</prop>
+        <prop key="two">India</prop>
+        <prop key="three">Pakistan</prop>
+        <prop key="four">USA</prop>
+        <prop key="five">UK</prop>
+      </props>
+    </property>
+  </bean>
+  
+  <bean id="spellChecker" class="com.tutorialspoint.SpellChecker"></bean>
+  
+</beans>

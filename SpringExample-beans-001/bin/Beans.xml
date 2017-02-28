@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+  <!-- singleton 作用域: -->
+  <!-- 如果作用域设置为 singleton，那么 Spring IoC 容器刚好创建一个由该 bean 定义的对象的实例。该单一实例将存储在这种单例 bean 的高速缓存中，以及针对该 bean 的所有后续的请求和引用都返回缓存对象。
+默认作用域是始终是 singleton，但是当仅仅需要 bean 的一个实例时，你可以在 bean 的配置文件中设置作用域的属性为 singleton，如下所示: -->
+  <!-- 默认 singleton -->
+  <bean id="helloWorld" class="com.tutorialspoint.HelloWorld">
+  </bean>
+  
+  <!-- prototype 作用域 -->
+  <!-- 如果作用域设置为 prototype，那么每次特定的 bean 发出请求时 Spring IoC 容器就创建对象的新的 Bean 实例。一般说来，满状态的 bean 使用 prototype 作用域和没有状态的 bean 使用 singleton 作用域。 -->
+  <bean id="helloWorld2" class="com.tutorialspoint.HelloWorld" scope="prototype">
+  </bean>
+  
+  <!-- A simple bean definition -->
+  <!--  <bean id="..." class="...">
+       collaborators and configuration for this bean go here
+   </bean> -->
+
+   <!-- A bean definition with lazy init set on -->
+   <!-- <bean id="..." class="..." lazy-init="true">
+       collaborators and configuration for this bean go here
+   </bean> -->
+
+   <!-- A bean definition with initialization method -->
+   <!-- <bean id="..." class="..." init-method="...">
+       collaborators and configuration for this bean go here
+   </bean> -->
+
+   <!-- A bean definition with destruction method -->
+   <!-- <bean id="..." class="..." destroy-method="...">
+       collaborators and configuration for this bean go here
+   </bean> -->
+
+   <!-- more bean definitions go here -->
+</beans>
